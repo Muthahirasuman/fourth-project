@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostily - Luxury Hotel</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Dancing+Script:wght@400..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Inconsolata:wght@200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+            padding: 15px 20px;
+            position: relative;
+        }
+
+        .logo img {
+            width: 120px;
+            transition: 0.3s ease;
+        }
+
+        .logo:hover img {
+            content: url("logo-dark.png"); /* Change logo on hover */
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            transition: 0.3s ease;
+        }
+
+        .nav-links {
+             list-style: none;
+            display: flex;
+            gap: 20px; 
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px;
+            display: block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: black;
+            top: 100%;
+            left: 0;
+            /* min-width: 150px; */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 200px;
+        }
+
+        .dropdown-menu li {
+            padding: 10px;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+         /* Hero Section  */
+        .hero {
+            background: url('img2.webp') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white; 
+        }
+
+         .hero h1 {
+            /* /* font-size: 3em;  */
+            font-size: 52px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+            font-family: "Exo 2", serif; 
+        }
+        .hero1-cotent {
+            /* display: flex; */
+            gap: 56px;
+            font-size: 50px;
+            font-family: "Exo 2", serif;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }  
+        .play-video {
+            background: none;
+            border: none;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            border: 1px solid;
+            width: 100px;
+            height: 100px;
+            border-radius: 49px;
+        }
+        .booking {
+            /* display: flex;
+            justify-content: center; */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            background-color: black;
+            color: white;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .check-now {
+            background-color:#b89146;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .check-now:hover{
+            background-color: #d79c2aed;
+        }
+        .book-now {
+             background-color: #b89146;
+             color: black;
+              padding: 21px 22px;
+              font-weight: bold;
+              text-decoration: none;
+              border-radius: 5px;
+              transition: 0.3s ease-in-out;
+              border: none;
+              cursor: pointer;
+              width: 14%;
+              height: 56px;
+            }
+
+            .book-now:hover {
+                    background-color: #d79c2aed;
+                }
+                
+.hero1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 50px;
+    position: relative;
+    width: 88%;
+    height: 420px;
+}
+.read-more, .book-now {
+    background-color: #d4a373;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.image-container {
+    position: relative;
+}
+
+.main-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.overlay-image {
+    left: 335px;
+    position: absolute;
+    /* bottom: -40px; */
+    /* right: -40px; */
+    width: 50%;
+    top: 2px;
+}
+.text h2 {
+    font-size: 37px;
+    color: #000000d4;
+    font-family: "Inconsolata", serif;
+}
+.text p {
+    font-size: 14px;
+    gap: 30px;
+    margin-bottom: 55px;
+    /* max-width: 445px; */
+}
+.text span {
+    color: #d4a373;
+}
+
+.overlay-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+}
+.hero2 {
+    padding: 50px;
+    text-align: center;
+}
+
+.filters button {
+    background-color: white;
+    border: 1px solid #d4a373;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin: 5px;
+}
+.filters button:hover{
+    /* color: #d4a373; */
+    background-color: #d4a373;
+}
+
+.filters .active {
+    background-color: #d4a373;
+    color: white;
+}
+    .room-gallery {
+    display: flex;
+    justify-content: center; 
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+
+.room-card {
+    position: relative;
+    width: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.room-card.large {
+    width: 330px;
+}
+
+.room-card img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    height: 105%;
+}
+
+.room-card:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.room-card:hover .overlay {
+    opacity: 1;
+}
+
+.room-info {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 23px;
+    width: 100%;
+    color: white;
+    padding: 15px;
+    font-family: "Poppins", serif;
+}
+        .overlay {
+            position: absolute;
+               bottom: 0;
+               left: 0;
+               right: 0;
+               background: rgba(0, 0, 0, 0.7);
+               color: white;
+               text-align: center;
+                padding: 10px;
+                opacity: 0;
+                 transition: opacity 0.3s;
+                }
+                
+.hero3 {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background: url('img10.webp') center/cover no-repeat;
+    /* display: flex;
+    align-items: center; */
+    justify-content: center;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    background-attachment: fixed;
+}
+
+.overlay1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero3-content {
+    position: relative;
+    color: #fff;
+    font-size: 24px;
+    max-width: 600px;
+    font-family: "Arvo", serif;
+}
+.play-button1 {
+    position: absolute;
+    right: 164px;
+    bottom: 140px;
+}
+.circle {
+    width: 100px;
+    height: 100px;
+    /* background: rgba(255, 255, 255, 0.3); */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    border: 2px solid #bd994a;
+}
+
+.circle:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.circle span {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 3px; 
+}
+.services {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 50px;
+    background: #f8f8f8;
+}
+
+.service-box {
+    text-align: center;
+    /* width: 200px; */
+    display: flex;
+}
+
+.service-box img {
+    width: 45px;  
+    height: 96px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+.service-text {
+    font-size: 12px;
+    font-family: "Exo 2", serif;
+}
+
+.containers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+            align-items: center;
+            justify-content: center;
+            /* max-width: 1200px; */
+            margin: 50px auto;
+            padding: 20px;
+            gap: 55px;
+        }
+
+        .image-containers {
+            width: 100%;
+        }
+
+        .image-containers img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .text-containers {
+            /* flex: 1; */
+            display: block;
+            padding: 0 0 0 80px;
+        }
+
+        .text-containers h2 {
+            font-size: 30px;
+            color: #222;
+            margin-bottom: 22px;
+             margin-top: 30px;
+             font-family: "Exo 2", serif;
+        }
+
+        .text-containers p {
+            color: #555;
+            /* margin: 15px 0; */
+            margin-bottom: 40px;
+            font-family: "Noto Serif", serif;
+        }
+        .text-containers span{
+            color: #a47d2c;
+        }
+
+         .read-more {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: white;
+            color:#bd994ae0;;
+            text-decoration: none;
+            /* border-radius: 5px; */
+            font-weight: bold;
+            border: 1px solid;
+        }
+
+        .read-more:hover {
+            background-color: #a47d2c;
+        } 
+        
+        .testimonial-container1 {
+            /* display: flex; */
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            justify-content: center;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #111;
+            color: #fff;
+            border-radius: 10px;
+            height: 400px;
+            width: 85%;
+        }
+
+        .image-container1 {
+            display: grid;
+            place-items: center;
+            justify-content: center;
+        }
+        .image-container1 img {
+            width: 200px;
+            height: 240px;
+            border-radius: 45%;
+            object-fit: cover;
+             border: 5px solid #fff;
+            }
+
+        .text-container1 {
+             gap: 10px;
+             padding-left: 20px;
+             display: grid;
+            }
+
+        .text-container1 h2 {
+            font-size: 1.8rem;
+            color: #fff;
+            font-family: "Exo 2", serif;
+        }
+
+        .text-container1 h3 {
+            font-size: 1rem;
+            color: #c79a38;
+            margin: 5px 0;
+            font-family: "Exo 2", serif;
+        }
+
+        .text-container1 p {
+            font-size: 1rem;
+            color: #ccc;
+            margin: 15px 0;
+            font-family: "Noto Serif", serif;
+        }
+
+        .dots {
+            gap: 5px;
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: repeat(5, 10px);
+        }
+
+        .dots span {
+            width: 10px;
+            height: 10px;
+            background-color: #666;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dots span.active {
+            background-color: #c79a38;
+        }
+        
+        .blog-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .blog-card {
+            position: relative;
+            width: 30%;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            height: 370px;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .blog-content h3 {
+            font-size: 15px;
+            margin-bottom: 10px;
+            font-family: "Noto Serif", serif;
+        }
+
+        .blog-content .date {
+            font-size: 16px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .read-more1 {
+            display: none;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #c79a38;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: opacity 0.3s;
+        }
+
+        .blog-card:hover .read-more1 {
+            display: block;
+        }
+        
+
+        .footer {
+            background-color: #111;
+            color: white;
+            padding: 50px 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0 20px;
+            height: 400px;
+        }
+
+         .footer-column {
+            width: 25%;
+            min-width: 200px;
+        }
+        
+        .logo1 img {
+            width: 120px;
+            transition: 0.3s ease;
+        }
+
+        .logo1:hover img {
+            content: url("logo-dark.png"); 
+         }
+
+        .footer-logo1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-family: "Exo 2", serif;
+        }
+        img#logo {
+            width: 130px;
+        }  
+
+        .footer-column p {
+            font-size: 14px;
+            color: #bbb;
+            margin-bottom: 45px;
+            font-family: "Noto Serif", serif;
+        }
+
+        .footer-links a {
+            display: block;
+            color: #bbb;
+            font-size: 14px;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-family: "Noto Serif", serif;
+        }
+
+        .footer-links a:hover {
+            color: #c79a38;
+        }
+        .footer-social {
+             display: grid;
+              place-items: center; 
+              padding: 20px;
+            }
+
+.footer-social ul {
+    display: grid;
+    grid-template-columns: repeat(4, 40px); 
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footer-social li {
+    display: grid;
+    place-items: center;
+}
+
+.footer-social a {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+     background-color: #555; 
+    color: white;
+    font-size: 18px;
+    transition: background 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    background-color: #a47d2c;
+}
+    
+ .subscribe-form {
+    display: grid;
+    grid-template-columns: 1fr auto; 
+    width: 310px; 
+    border-radius: 5px;
+    overflow: hidden;
+    height: 80px;
+}
+
+.subscribe-form input {
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #c79a38;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    background-color: #080808;
+    color: #bbb;
+}
+
+.subscribe-form button {
+    background-color: #c79a38; 
+    color: white;
+    padding: 12px 18px;
+    font-size: 18px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.subscribe-form button:hover {
+    background-color: #444; 
+}
+
+.submit-button {
+    background-color: #c79a38; 
+    color: white;
+    padding: 10px 16px;
+    font-size: 16px;
+    border: none;
+    /* border-radius: 5px; */
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #a47d2c; 
+}
+
+.footer-column {
+    display: grid;
+    place-items: center; 
+    text-align: center;
+    margin-top: 20px;
+}
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #bbb;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                /* flex-direction: column; */
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-container {
+                /* flex-direction: column; */
+                align-items: center;
+            }
+            .blog-card {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-container1 {
+                /* flex-direction: column; */
+                text-align: center;
+                padding: 30px;
+            }
+            .text-container1 {
+                padding-left: 0;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .containers {
+                /* flex-direction: column; */
+                text-align: center;
+            }
+        }
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: black;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 10px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+        @media (min-width: 576px) { 
+            /* header.hero {
+             width: 400%;
+            } */
+            /* nav.navbar {
+            width: 324%;
+        } */
+         }
+         @media (max-width: 575.98px) { 
+            header.hero {
+             width: 331%;
+            }
+            /* nav.navbar {
+                width: 324%;
+            } */
+            .row.booking {
+                width: 324%;
+            }
+                .hero1 {
+                    width: 316%;
+                    height: 200%;
+                }.hero2 {
+                    width: 330%;
+            }
+            .hero3 {
+                width: 328%;
+            }
+            .services{
+                width: 330%;
+            }
+            .containers{
+                width: 321%;
+            }
+            .testimonial-container1{
+                width: 318%;
+            }
+            footer.footer {
+                width: 329%;
+                height: 1000px;
+            }
+        }
+        @media (max-width: 991.98px) { 
+            head.hero{
+                width: 100%;
+            }
+           
+         }
+         @media (min-width: 992px) { 
+            head.hero{
+                width: 100%;
+            }
+          }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="img1.webp" alt="Logo" id="logo">
+        </div>
+        <!-- <label for="menu-toggle" class="hamburger">&#9776;</label> -->
+         <div class="menu-toggle" id="menu-toggle">
+        <label for="menu-toggle" class="menu-toggle">&#9776;</label>
+    </div>
+        <ul class="nav-links" id="nav-links">
+            <li class="dropdown">
+            <a href="#">Home</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Home1</a></li>
+                <li><a href="#">Home2</a></li>
+                <li><a href="#">Home3</a></li>
+            </ul>
+        </li>
+            <li class="dropdown">
+            <a href="#">Pages</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">about</a></li>
+                <li><a href="#">team</a></li>
+                <li><a href="#">Services Details</a></li>
+                <li><a href="#">Coming soon</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#">Room</a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Room Style</a></li>
+                <li><a href="#"> Room Modern</a></li>
+                <li><a href="#">Room List</a></li>
+                <li><a href="#"> Room details</a></li>
+            </ul>
+        </li>
+            <li class="dropdown">
+                <a href="#">Blog</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Blog Grid</a></li>
+                    <li><a href="#">Blog Standard</a></li>
+                    <li><a href="#">Blog Details</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+       
+        <button class="book-now">BOOK NOW</button>
+    </nav>
+     <header class="hero">
+        <div class="hero-content">
+            <h1>The Best Hotel </h1>
+              <div class="hero1-cotent">
+              <span>Deals in the World</span>
+              <div class="play-button1">
+                <div class="circle">
+                    <span>&#9658;</span>
+                </div>
+            </div>
+            </div>
+        </div>
+    </header>
+ <div class="row booking"> 
+    <section class="booking">
+        <div class="form-group">
+            <label>Check In</label>
+            <input type="date">
+        </div>
+        <div class="form-group">
+            <label>Check Out</label>
+            <input type="date">
+        </div>
+        <div class="form-group">
+            <label>Room</label>
+            <select>
+                <option>1 Room</option>
+                <option>2 Room</option>
+                <option>3 Room</option>
+                <option>4 Room</option>
+                <option>5 Room</option>
+            </select>
+        </div>
+        <button class="check-now">CHECK NOW</button>
+    </section>
+ </div>
+ <div class="hero1">
+    <div class="text">
+        <span>Accommodations</span>
+        <h2>Welcome Our Hotels And Resorts</h2>
+        <p>Savvy travelers are looking for more than just the next destination on the map. They are looking for a memorable experience and to make new friends along the way.</p>
+        <button class="read-more">READ MORE</button>
+    </div>
+    <div class="image-container">
+        <div class="main-image">
+            <img src="img4.webp" alt="Luxury Hotel Room">
+        </div>
+        <div class="overlay-image">
+            <img src="img3.webp" alt="Luxury Hotel Room 2">
+        </div>
+    </div>
+</div>
+
+<div class="hero2">
+    <div class="text">
+        <h2>Our Luxury Rooms</h2>
+        <p>Deluxe And Luxury</p>
+        <div class="filters">
+            <button class="active">All Rooms</button>
+            <button>Luxury</button>
+            <button>Single</button>
+            <button>Small Suite</button>
+            <button>Family</button>
+        </div>
+    </div>
+    <div class="room-gallery">
+        <div class="room-card">
+            <img src="img5.webp" alt="Small Suite">
+            <div class="overlay">BOOKING NOW</div>
+            <div class="room-info">
+                <span>$134 / Night</span>
+                <h3>Small Suite</h3>
+            </div>
+        </div>
+        <div class="room-card large">
+            <img src="img6.webp" alt="Deluxe Room">
+            <div class="overlay">BOOKING NOW</div>
+            <div class="room-info">
+                <span>$199 / Night</span>
+                <h3>Deluxe Room</h3>
+            </div>
+        </div>
+        <div class="room-card">
+            <img src="img7.webp" alt="Family Room">
+            <div class="overlay">BOOKING NOW</div>
+            <div class="room-info">
+                <span>$319 / Night</span>
+                <h3>Family Room</h3>
+            </div>
+        </div>
+        <div class="room-card">
+            <img src="img8.webp" alt="Single Room">
+            <div class="overlay">BOOKING NOW</div>
+            <div class="room-info">
+                <p class="price">$169 / Night</p>
+                <p>Single Room</p>
+            </div>
+        </div>
+        <div class="room-card">
+            <img src="img9.webp" alt="Luxury Room">
+            <div class="overlay">BOOKING NOW</div>
+            <div class="room-info">
+                <p class="price">$249 / Night</p>
+                <p>Luxury Room</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hero3">
+    <div class="overlay1"></div>
+    <div class="hero3-content">
+        <h1>Book hotel rooms, get deals & book flights online.</h1>
+    </div>
+    <div class="play-button1">
+        <div class="circle">
+            <span>&#9658;</span>
+        </div>
+    </div>
+</div>
+<div class="services">
+    <div class="service-box">
+        <img src="img11,webp.webp" alt="Room Cleaning">
+      <div class="service-text">
+        <h3>Room Cleaning</h3>
+        <p>Proin massa augue, lacinia at blandit ac, fringilla scelerisque tortor</p>
+      </div>
+    </div>
+    <div class="service-box">
+        <img src="img12.webp" alt="Room Wifi">
+        <div class="service-text">
+        <h3>Room Wifi</h3>
+        <p>Proin massa augue, lacinia at blandit ac, fringilla scelerisque tortor</p>
+        </div>
+    </div>
+    <div class="service-box">
+        <img src="img13.webp" alt="Pickup & Drop">
+        <div  class="service-text">
+        <h3>Pickup & Drop</h3>
+        <p>Proin massa augue, lacinia at blandit ac, fringilla scelerisque tortor</p>
+        </div>
+    </div>
+</div>
+<div class="containers">
+    <div class="image-containers">
+        <img src="img14.webp" alt="Restaurant Image">
+    </div>
+    <div class="text-containers">
+        <span>our food</span>
+        <h2>Restaurant Silo</h2>
+        <p>Proin massa augue, lacinia at blandit ac, fringilla scelerisque tortor. Mauris sit amet lectus porta.</p>
+        <a href="#" class="read-more">READ MORE →</a>
+    </div>
+</div>
+<div class="containers">
+    <div class="text-containers">
+        <span>Read our book</span>
+        <h2>The Library</h2>
+        <p>Proin massa augue, lacinia at blandit ac, fringilla scelerisque tortor. Mauris sit amet lectus porta.</p>
+        <a href="#" class="read-more">READ MORE →</a>
+    </div>
+    <div class="image-containers">
+        <img src="img15.webp" alt="Library Image">
+    </div>
+</div>
+<div class="containers">
+    <div class="image-containers">
+        <img src="img16.webp" alt="Restaurant Image">
+    </div>
+    <div class="text-containers">
+        <span>Fitness Equipment</span>
+        <h2>Exercise equipment</h2>
+        <p>Proin massa augue, lacinia at blandit ac, fringilla scelerisque tortor. Mauris sit amet lectus porta.</p>
+        <a href="#" class="read-more">READ MORE →</a>
+    </div>
+</div>
+<div class="containers">
+    <div class="text-containers">
+        <span>Experiences</span>
+        <h2>Swimming Pool</h2>
+        <p>Proin massa augue, lacinia at blandit ac, fringilla scelerisque tortor. Mauris sit amet lectus porta.</p>
+        <a href="#" class="read-more">READ MORE →</a>
+    </div>
+    <div class="image-containers">
+        <img src="img17.webp" alt="Library Image">
+    </div>
+</div>
+<div class="testimonial-container1">
+    <div class="image-container1">
+        <img src="img18.webp" alt="Testimonial Person">
+    </div>
+    <div class="text-container1">
+        <h2>David Beckham</h2>
+        <h3>UX Designer</h3>
+        <p>Proin massa augue, lacinia at blandit ac, fringilla scelerisque tortor. Mauris sit amet lectus porta, porta lectus non, malesuada neque. Integer in tempus leo. Quisque vitae leo ac ex suscipit iaculis eu in nisl.</p>
+        <div class="dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<div class="blog-container">
+    <div class="blog-card">
+        <img src="img19.webp" alt="Room 1">
+        <div class="blog-content">
+            <p class="date">27 July 2022</p>
+            <h3>The ultimate guide to finding the best hotels in your area.</h3>
+            <a href="#" class="read-more1">READ MORE →</a>
+        </div>
+    </div>
+
+    <div class="blog-card">
+        <img src="img20.webp" alt="Room 2">
+        <div class="blog-content">
+            <p class="date">27 July 2022</p>
+            <h3>Book a room Today most Affordable Rates.</h3>
+            <a href="#" class="read-more1">READ MORE →</a>
+        </div>
+    </div>
+
+    <div class="blog-card">
+        <img src="img21.webp" alt="Room 3">
+        <div class="blog-content">
+            <p class="date">27 July 2022</p>
+            <h3>Hotel Booking is the best choice for hotel booking.</h3>
+            <a href="#" class="read-more1">READ MORE →</a>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <div class=" footer-logo1">
+                <img src="img1.webp" alt="Logo" id="logo">
+            </div>
+            <p>Phasellus nisi sapien, rutrum placerat sapien eu, rhoncus tempus.</p>
+
+         <div class="footer-social">
+             <ul>
+        
+            <li>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        </li>
+        <li>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </li>
+        <li>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </li>
+        <li>
+            <a href="#"><i class="fa-solid fa-icons"></i></a>
+        </li>
+     </ul>
+        </div>
+    </div>
+        
+    <div class="footer-column">
+            <h3>Information</h3>
+            <p>GXF4+8HQ Chippenham, United Kingdom</p>
+            <p>help.info@gmail.com</p>
+            <p>+123 (458) 585 568</p>
+        </div>
+        <div class="footer-column footer-links">
+            <h3>Pages Links</h3>
+            <a href="#">Room Cleaning</a>
+            <a href="#">Car Parking</a>
+            <a href="#">Swimming Pool</a>
+            <a href="#">Fitness Gym</a>
+        </div>
+        <div class="footer-column">
+            <h3>Subscribe</h3>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Email Address">
+                <div class="submit-button">
+                <button type="submit"></button>
+              </div>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">Copyright © 2025 ThemeOri Website by Hostily</div>
+</footer>
+</body>
+</html>
