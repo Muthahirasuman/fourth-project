@@ -20,14 +20,39 @@
         }
 
         /* Navbar */
-        .navbar {
+        /* .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             background-color: black;
             padding: 15px 20px;
-            position: relative;
-        }
+            /* position: relative; 
+        } */
+        .navbar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    background-color: black;
+    padding: 15px 20px;
+    color: white;
+}
+
+.logo {
+    grid-column: 1;
+}
+
+.nav-menu {
+    grid-column: 2;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 30px;
+    justify-content: center;
+}
+
+.nav-actions {
+    grid-column: 3;
+}
+
 
         .logo img {
             width: 120px;
@@ -89,11 +114,13 @@
         .hero {
             background: url('img2.webp') no-repeat center center/cover;
             height: 500px;
-            display: flex;
-            align-items: center;
+            /* display: flex; */
+            align-content: center;
             justify-content: center;
             text-align: center;
             color: white; 
+            display:grid;
+
         }
 
          .hero h1 {
@@ -132,8 +159,7 @@
         }
 
         .form-group {
-            display: flex;
-            flex-direction: column;
+            display: grid;
         }
 
         .form-group label {
@@ -184,30 +210,57 @@
     width: 88%;
     height: 420px;
 }
-.read-more, .book-now {
+.read-more {
     background-color: #d4a373;
     color: white;
     border: none;
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
+    display: flex;
+    justify-content: center;
     cursor: pointer;
 }
-
+ .book-now {
+    background-color: #d4a373;
+    color: white;
+    border: none;
+    /* padding: 10px 20px; */
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+}
 .image-container {
-    position: relative;
+  /* position: relative; */
+  width: 100%;
+  max-width: 600px; 
 }
 
 .main-image img {
-    width: 100%;
-    border-radius: 10px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
 }
 
 .overlay-image {
-    left: 335px;
-    position: absolute;
-    /* bottom: -40px; */
-    /* right: -40px; */
-    width: 50%;
-    top: 2px;
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 60%;
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.overlay-image {
+  width: 50%;
+  justify-self: end; 
+  align-self: start; 
+  grid-area: 1 / 1; 
+  z-index: 2;
+  border-radius: 10px;
+  margin-top: 10px; 
+  margin-right: 20px; 
 }
 .text h2 {
     font-size: 37px;
@@ -279,10 +332,10 @@
 
 .room-card:hover img {
     transform: scale(1.1);
-}
+} 
 
-.overlay {
-    position: absolute;
+ .overlay {
+    /* position: absolute; */
     bottom: 0;
     left: 0;
     right: 0;
@@ -292,7 +345,9 @@
     padding: 10px;
     opacity: 0;
     transition: opacity 0.3s;
-}
+} 
+
+
 
 .room-card:hover .overlay {
     opacity: 1;
@@ -336,38 +391,60 @@
 }
 
 .overlay1 {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
-
 .hero3-content {
-    position: relative;
+    grid-area: content;
     color: #fff;
     font-size: 24px;
     max-width: 600px;
     font-family: "Arvo", serif;
+    z-index: 1;
 }
+
+
+
+.play-button2 {
+    grid-area: button;
+    align-self: end;
+    justify-self: end;
+    margin: 0 40px 40px 0; /* mimic bottom-right padding */
+    display: grid;
+    place-items: center;
+    z-index: 1;
+}
+
+
+
+.hero1-cotent {
+  display: grid;
+  grid-template-columns: auto auto; 
+  align-items: center;              
+  gap: 56px;
+  font-size: 50px;
+  font-family: "Exo 2", serif;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
 .play-button1 {
-    position: absolute;
-    right: 164px;
-    bottom: 140px;
+  display: grid;
+  place-items: center; 
 }
+
 .circle {
-    width: 100px;
-    height: 100px;
-    /* background: rgba(255, 255, 255, 0.3); */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    border: 2px solid #bd994a;
+  display: grid;
+  place-items: center; 
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #bd994a;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
 }
+
 
 .circle:hover {
     background: rgba(255, 255, 255, 0.6);
@@ -380,7 +457,9 @@
     margin-left: 3px; 
 }
 .services {
-    display: flex;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-content: center;
     gap: 50px;
     padding: 50px;
@@ -390,7 +469,10 @@
 .service-box {
     text-align: center;
     /* width: 200px; */
-    display: flex;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: center;
 }
 
 .service-box img {
@@ -538,7 +620,9 @@
         }
         
         .blog-container {
-            display: flex;
+            /* display: flex; */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             justify-content: center;
             gap: 20px;
             max-width: 1200px;
@@ -548,7 +632,7 @@
 
         .blog-card {
             position: relative;
-            width: 30%;
+            width: 100%;
             background-color: #fff;
             border-radius: 10px;
             overflow: hidden;
@@ -706,7 +790,7 @@
  .subscribe-form {
     display: grid;
     grid-template-columns: 1fr auto; 
-    width: 310px; 
+    /* width: 310px;  */
     border-radius: 5px;
     overflow: hidden;
     height: 80px;
@@ -773,13 +857,14 @@
 
         @media (max-width: 768px) {
             .footer-container {
-                /* flex-direction: column; */
-                align-items: center;
-                text-align: center;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            /* width: 100%; */
+            height: 100%;
             }
-
             .footer-column {
-                width: 100%;
+                /* width: 100%; */
                 margin-bottom: 20px;
             }
         }
@@ -841,37 +926,42 @@
         } */
          }
          @media (max-width: 575.98px) { 
-            header.hero {
-             width: 331%;
-            }
+            /* header.hero {
+             width: 100%;
+            } */
             /* nav.navbar {
                 width: 324%;
             } */
-            .row.booking {
-                width: 324%;
+            /* .row.booking {
+                width: 100%;
+            } */
+            .hero1 {
+             width: 50%;
+            height: 200%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
             }
-                .hero1 {
-                    width: 316%;
-                    height: 200%;
-                }.hero2 {
-                    width: 330%;
+              /* }
+            .hero2 {
+                    width: 100%;
             }
             .hero3 {
-                width: 328%;
+                width: 100%;
             }
             .services{
-                width: 330%;
+                width: 100%;
             }
             .containers{
-                width: 321%;
+                width: 100%;
             }
             .testimonial-container1{
-                width: 318%;
+                width: 100%;
             }
             footer.footer {
-                width: 329%;
+                width: 100%;
                 height: 1000px;
-            }
+            } */
         }
         @media (max-width: 991.98px) { 
             head.hero{
@@ -1048,7 +1138,7 @@
     <div class="hero3-content">
         <h1>Book hotel rooms, get deals & book flights online.</h1>
     </div>
-    <div class="play-button1">
+    <div class="play-button2">
         <div class="circle">
             <span>&#9658;</span>
         </div>
